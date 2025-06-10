@@ -1,0 +1,14 @@
+[font]
+size = 19
+
+[font.bold]
+family = "AcPlus IBM VGA 9x16"
+style = "Bold"
+
+[font.italic]
+family = "AcPlus IBM VGA 9x16"
+style = "Italic"
+
+[font.normal]
+family = "AcPlus IBM VGA 9x16"
+style = "Regular"
