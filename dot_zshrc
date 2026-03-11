@@ -1,0 +1,34 @@
+autoload -Uz compinit up-line-or-beginning-search down-line-or-beginning-search
+compinit
+
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+
+bindkey '^[[A' up-line-or-beginning-search
+bindkey '^[[B' down-line-or-beginning-search
+
+setopt autocd
+setopt correct
+setopt histignorealldups
+
+HISTSIZE=10000
+SAVEHIST=10000
+HISTFILE=~/.zsh_history
+
+setopt APPEND_HISTORY          # don't overwrite history file, append to it
+setopt INC_APPEND_HISTORY      # write to history file immediately (not only on exit)
+setopt SHARE_HISTORY           # share history across all sessions (tabs/windows)
+
+setopt HIST_IGNORE_DUPS        # ignore consecutive duplicates
+setopt HIST_IGNORE_ALL_DUPS    # remove older duplicates when a new one is added
+setopt HIST_EXPIRE_DUPS_FIRST  # expire duplicates first when trimming
+setopt HIST_REDUCE_BLANKS      # remove superfluous blanks
+setopt HIST_VERIFY             # don't execute immediately when expanding history
+
+#PROMPT='%n@%m %~ %# '
+PS1=$'%(?..%F{red}%?%f ) %F{cyan}%n@%m%f %d\n %(#.%F{red}#%f.%F{green}$%f) '
+export LIBVIRT_DEFAULT_URI='qemu:///system'
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
