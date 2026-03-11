@@ -64,7 +64,16 @@ set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 
 " Create dirs if missing
-silent !mkdir -p ~/.vim/{undo,backup,swap} >/dev/null 2>&1
+" silent !mkdir -p ~/.vim/{undo,backup,swap} >/dev/null 2>&1
+if !isdirectory(expand('~/.vim/undo'))
+  call mkdir(expand('~/.vim/undo'), 'p')
+endif
+if !isdirectory(expand('~/.vim/backup'))
+  call mkdir(expand('~/.vim/backup'), 'p')
+endif
+if !isdirectory(expand('~/.vim/swap'))
+  call mkdir(expand('~/.vim/swap'), 'p')
+endif
 
 " ============================
 " Splits behavior
